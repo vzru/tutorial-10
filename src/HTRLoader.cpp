@@ -87,6 +87,18 @@ GameObject* HTRLoader::getGameObjectByName(std::string jointName)
 	return nullptr;
 }
 
+SkinnedGameObject * HTRLoader::getSkinnedGameObjectByName(std::string jointName)
+{
+	int numJoints = jointGameObjects.size();
+
+	for (int i = 0; i < numJoints; i++)
+	{
+		if (jointName == jointGameObjects[i]->name)
+			return jointGameObjects[i];
+	}
+	return nullptr;
+}
+
 void HTRLoader::createGameObjects()
 {
 	// Todo:
@@ -327,8 +339,10 @@ bool HTRLoader::processBasePositionSection(FILE* fp, char* loc)
 		// I'd recommend the "sscanf" function.
 		sscanf(buffer, "%s %f %f %f %f %f %f %f", jointNameBuff, &tx, &ty, &tz, &rx, &ry, &rz, &boneLength);
 
+		//createGameObjects();
 		// Find the joint descriptor by name
 		JointDescriptor* jd = getJointDescriptorByName(jointNameBuff);
+		//SkinnedGameObject* go = getSkinnedGameObjectByName(jointNameBuff);
 
 		// Make sure we got it
 		if (!jd)
@@ -341,6 +355,11 @@ bool HTRLoader::processBasePositionSection(FILE* fp, char* loc)
 		jd->jointBasePosition = glm::vec3(tx, ty, tz) * unitsScaleFactor; // Note the scale factor multiplication. See 'unitsScaleFactor' definition for details.
 		jd->jointBaseRotation = createQuaternion(rx, ry, rz);
 		jd->boneLength = boneLength;
+
+
+		//go->m_pJointToBindMat = glm::mat4();
+		//go->m_pJointToBindMat = go->m_pJointToBindMat * mat4_cast(jd->jointBaseRotation);
+		//go->m_pJointToBindMat = glm::translate(go->m_pJointToBindMat, glm::vec3(tx, ty, tz));
 
 		// Increment to next valid line
 		goToNextValidLineInFile(fp, buffer);

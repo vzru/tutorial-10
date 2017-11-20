@@ -24,6 +24,7 @@ public:
 	JointDescriptor* getJointDescriptorByName(std::string jointName);
 
 	GameObject* getGameObjectByName(std::string jointName);
+	SkinnedGameObject* getSkinnedGameObjectByName(std::string jointName);
 
 	void createGameObjects();
 

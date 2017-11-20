@@ -25,7 +25,6 @@ protected:
 	std::shared_ptr<TTK::OBJMesh> m_pBindMesh; // Mesh in t-pose
 	std::shared_ptr<TTK::OBJMesh> m_pSkinnedMesh;
 
-	glm::mat4 m_pJointToBindMat;
 public:
 	SkinnedGameObject();
 	~SkinnedGameObject();
@@ -36,6 +35,7 @@ public:
 
 	void initializeSkeletonFromHTR(std::string htrFilePath, std::string skinWeightFilePath, std::shared_ptr<TTK::OBJMesh> bindMesh);
 
+	glm::mat4 m_pJointToBindMat;
 	glm::mat4 getJointToBindMatrix();
 
 	virtual void update(float dt);
