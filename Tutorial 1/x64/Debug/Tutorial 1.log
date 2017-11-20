@@ -1,0 +1,21 @@
+﻿  main.cpp
+c:\users\100421055\desktop\infr 2310\tutorial\tutorial 10 - starter\starter\include\ttk\camera.h(32): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\100421055\desktop\infr 2310\tutorial\tutorial 10 - starter\starter\include\ttk\camera.h(45): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\100421055\desktop\infr 2310\tutorial\tutorial 10 - starter\starter\include\ttk\camera.h(46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\100421055\desktop\infr 2310\tutorial\tutorial 10 - starter\starter\src\main.cpp(219): warning C4065: switch statement contains 'default' but no 'case' labels
+c:\users\100421055\desktop\infr 2310\tutorial\tutorial 10 - starter\starter\src\main.cpp(283): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\100421055\desktop\infr 2310\tutorial\tutorial 10 - starter\starter\src\main.cpp(284): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\100421055\desktop\infr 2310\tutorial\tutorial 10 - starter\starter\src\main.cpp(286): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\100421055\desktop\infr 2310\tutorial\tutorial 10 - starter\starter\src\main.cpp(287): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\100421055\desktop\infr 2310\tutorial\tutorial 10 - starter\starter\src\main.cpp(318): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\100421055\desktop\infr 2310\tutorial\tutorial 10 - starter\starter\src\main.cpp(322): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\100421055\desktop\infr 2310\tutorial\tutorial 10 - starter\starter\src\main.cpp(323): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\100421055\desktop\infr 2310\tutorial\tutorial 10 - starter\starter\src\main.cpp(325): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\100421055\desktop\infr 2310\tutorial\tutorial 10 - starter\starter\src\main.cpp(326): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\100421055\desktop\infr 2310\tutorial\tutorial 10 - starter\starter\src\main.cpp(334): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\100421055\desktop\infr 2310\tutorial\tutorial 10 - starter\starter\src\main.cpp(335): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  SkinnedGameObject.cpp
+c:\users\100421055\desktop\infr 2310\tutorial\tutorial 10 - starter\starter\src\skinnedgameobject.cpp(90): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+  Tutorial 1.vcxproj -> C:\Users\100421055\Desktop\INFR 2310\Tutorial\Tutorial 10 - starter\starter\x64\Debug\Tutorial 9.exe
+  Tutorial 1.vcxproj -> C:\Users\100421055\Desktop\INFR 2310\Tutorial\Tutorial 10 - starter\starter\x64\Debug\Tutorial 9.pdb (Partial PDB)
