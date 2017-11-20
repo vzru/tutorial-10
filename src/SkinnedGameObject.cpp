@@ -212,18 +212,19 @@ void SkinnedGameObject::draw()
 			glm::vec3 vBind = m_pBindMesh->objVertices[vertexIdx];
 
 			// glm::vec4 vJointSpace = ...
-			//glm::vec4 vJointSpace = m_pJointToBindMat;
+			glm::vec4 vJointSpace = bindToJointMat * glm::vec4(vBind, 1.f);
 
 			// glm::vec4 vWorldSpace = ...
-			//glm::vec4 vWorldSpace = 0.f;
+			glm::vec4 vWorldSpace = m_pLocalToWorldMatrix * vJointSpace;
 
 			// glm::vec3 vSkinned = ...
-			//glm::vec3 vSkinned = 0.f;
+			glm::vec3 vSkinned = jointWeight * vWorldSpace;
 
 			// m_pSkinnedMesh->objVertices[vertexIdx] ...
-			m_pSkinnedMesh->objVertices[vertexIdx];
+			m_pSkinnedMesh->objVertices[vertexIdx] = vSkinned;
 
 			// TODO: Update the normals
+			m_pSkinnedMesh->objNormals[vertexIdx] = vWorldSpace * glm::vec4(m_pBindMesh->objNormals[vertexIdx], 1.0f);
 		}
 	}
 
