@@ -137,10 +137,34 @@ void SkinnedGameObject::update(float dt)
 	else
 	{
 		//// Todo: create localRotation, scale and translation matrices using HTR data
-		//glm::mat4 trans = glm::translate(glm::mat4(), m_pJointAnimation->jointBasePosition);
-		//glm::mat4 rot = glm::mat4_cast(m_pJointAnimation->jointBaseRotation);
+		glm::mat4 trans = glm::translate(glm::mat4(), m_pJointAnimation->jointBasePosition);
+		glm::mat4 rot = glm::mat4_cast(m_pJointAnimation->jointBaseRotation);
 		//glm::mat4 sca = glm::scale(glm::mat4(), glm::vec3(m_pJointAnimation->boneLength));
-		//m_pJointToBindMat = trans * rot;// * sca;
+		if (m_pParent)
+		{
+			m_pJointToBindMat = m_pParent->getLocalToWorldMatrix() * (trans * rot);// * sca;
+		}
+		else
+		{
+			m_pJointToBindMat = trans * rot;// * sca;
+		}
+
+		//double dArray[16] = { 0.0 };
+		//const float *pSource = (const float*)glm::value_ptr(m_pJointToBindMat);
+		//std::cout << name << std::endl;
+		//for (int i = 0; i < 16; ++i)
+		//{
+		//	dArray[i] = pSource[i];
+		//	if (i % 4 == 3)
+		//	{
+		//		std::cout << dArray[i] << std::endl;
+		//	}
+		//	else
+		//	{
+		//		std::cout << dArray[i] << ' ';
+		//	}
+		//}
+		//std::cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@" << std::endl;
 
 		m_pLocalRotation =
 			glm::mat4_cast(m_pJointAnimation->jointBaseRotation *
@@ -218,6 +242,7 @@ void SkinnedGameObject::draw()
 
 			// glm::vec4 vJointSpace = ...
 			glm::vec4 vJointSpace = bindToJointMat * glm::vec4(vBind, 1.f);
+			//std::cout << name << ':' << vJointSpace.x << ';' << vJointSpace.y << ';' << vJointSpace.z << ';' << std::endl;
 
 			// glm::vec4 vWorldSpace = ...
 			glm::vec4 vWorldSpace = m_pLocalToWorldMatrix * vJointSpace;
@@ -232,7 +257,7 @@ void SkinnedGameObject::draw()
 			m_pSkinnedMesh->objNormals[vertexIdx] = vWorldSpace * glm::vec4(m_pBindMesh->objNormals[vertexIdx], 1.0f);
 		}
 	}
-
+	
 	// Draw children (each joint performs skinning on the vertices they influence)
 	for (int i = 0; i < m_pChildren.size(); ++i)
 		m_pChildren[i]->draw();

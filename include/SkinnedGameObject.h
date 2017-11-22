@@ -20,10 +20,10 @@ class SkinnedGameObject : public GameObject
 protected:
 	int m_pCurrentFrame;
 	HTRLoader* m_pHTRAnimation;
-	JointDescriptor* m_pJointAnimation; // The animation for this specific joint
 
 	std::shared_ptr<TTK::OBJMesh> m_pBindMesh; // Mesh in t-pose
 	std::shared_ptr<TTK::OBJMesh> m_pSkinnedMesh;
+	JointDescriptor* m_pJointAnimation; // The animation for this specific joint
 
 public:
 	SkinnedGameObject();
